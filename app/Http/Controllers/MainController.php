@@ -197,7 +197,7 @@ class MainController extends Controller
     protected function getMinStep()
     {
         $command = sprintf('%s %s %s %d %d %s %d %d %d %d %d %d %d %d',
-            'ruby',
+            '/home/2ndregion/bin/rbenv/versions/2.4.1/bin/ruby',
             resource_path('hs_resolver.rb'),
             implode(',', $this->pieceIndex),
             $this->destination['h'],
