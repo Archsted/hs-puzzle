@@ -15,7 +15,7 @@ class CreateMapsTable extends Migration
     {
         Schema::create('maps', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code', 4);
+            $table->string('code', 4)->unique();
             $table->timestamps();
         });
     }
