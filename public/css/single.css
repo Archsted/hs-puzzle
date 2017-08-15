@@ -1,0 +1,187 @@
+* {
+    font-family: "メイリオ", sans-serif;
+}
+
+.red{
+    background-color:#f22;
+}
+.green{
+    background-color:#2f2;
+}
+.blue{
+    background-color:#88f;
+}
+.yellow{
+    background-color:#fd2;
+}
+.black{
+    background-color:#999;
+}
+
+#main{
+    margin:0 auto;
+    /*width:1070px;*/
+    width:820px;
+}
+.btn{
+    cursor:pointer;
+}
+#container{
+    width:240px;
+    height:580px;
+    float:left;
+    background-color:#444;
+    margin:0;
+    padding:0;
+    position:relative;
+}
+#board{
+    float:left;
+    width:580px;
+    height:580px;
+    margin:0;
+    padding:0;
+    background-color:#000;
+}
+
+#c {
+    width:580px;
+    height:580px;
+
+}
+
+#staCount{
+    text-align:center;
+    position:relative;
+    background-color:#2ff;
+    width:64px;
+    height:64px;
+    top:-318px;
+    left:254px;
+}
+
+#sta{
+    line-height:64px;
+    font-size:200%;
+    position:absolute;
+    left: 0;
+    right:0;
+    top:0;
+    bottom:0;
+}
+
+#pad button{
+    border:solid 2px #888;
+    margin:0;
+    padding:1px;
+    cursor:pointer;
+    width:33px;
+    height:33px;
+}
+.btn-back{
+    color:#ffc;
+    text-align:left;
+    position:absolute;
+    top:4px;
+    left:8px;
+}
+.btn-refresh{
+    color:#ffc;
+    text-align:right;
+    position:absolute;
+    top:4px;
+    right:8px;
+}
+
+#info{
+    background-color:#444;
+    height:580px;
+    /*width:248px;*/
+    width:408px;
+    float:left;
+    margin:0;
+}
+
+#state {
+    clear:both;
+    float:left;
+    position:relative;
+    top: 6px;
+    left: 3px;
+    text-align:center;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    font-weight: bold;
+}
+
+#state .front {
+    border-radius: 10px;
+    background-color: #66ff66;
+    color: #006600;
+}
+#state .back {
+    border-radius: 10px;
+    background-color: #ff6666;
+    color: #660000;
+}
+
+.arrow-pad{
+    padding:1px;
+    margin:10px auto 5px;
+    width:100px;
+    height:99px;
+    border-radius:35%;
+}
+
+.arrow-pad div {
+    height: 33px;
+}
+
+.history{
+    background-color:#888;
+    position:relative;
+    height:46px;
+}
+
+input{
+    margin:0;
+    padding:0;
+}
+
+#description {
+    clear: both;
+    padding: 0.1em 0.2em;
+    background-color: #333333;
+    color: #ffffee;
+}
+
+#description li {
+    font-size: 90%;
+    padding: 3px 0;
+}
+
+
+#countInfo {
+    font-size: 14px;
+    padding: 5px 10px 4px;
+    background-color: #ccc;
+}
+
+#roundCount {
+    font-weight: bold;
+    color: #c62;
+}
+
+#footer {
+    clear: both;
+    /*color: #ddd;*/
+}
+
+#howto {
+    /*background-color: #004;*/
+}
+
+header {
+    text-align: center;
+}
