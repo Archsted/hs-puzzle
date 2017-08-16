@@ -54,7 +54,7 @@ var loadingTextObject;
 
 var state;
 
-var boardUrl = '/api/v1/board';
+var boardUrl = 'api/v1/board';
 
 function Sta () {
     this.oh = 0; //初期位置
@@ -511,6 +511,9 @@ function checkGetUdon(sta) {
 
         state = 5;
 
+        // 空にすることで次の読み込みをランダムにする
+        $('#code').val('');
+
         roundOver();
 
         setTimeout(function(){
@@ -672,6 +675,27 @@ function roundOver() {
 }
 
 function reload() {
+
+    showLoading();
+
+    $.getJSON(boardUrl + '/' + $('#code').val(), null, function (data) {
+        $('#code').val(data.code);
+        history.replaceState(null, null, 'single/' + data.code);
+        original = $.extend(true, {}, data);
+        maxStep = data.minStep;
+        initGame();
+
+        canvas.remove(loadingTextObject);
+        canvas.remove(loadingBgObject);
+
+        loadingTextObject = null;
+        loadingBgObject = null;
+
+        state = 1;
+    });
+}
+
+function showLoading() {
     state = 5;
 
     loadingBgObject = new fabric.Rect({
@@ -687,8 +711,8 @@ function reload() {
     canvas.add(loadingBgObject);
     loadingBgObject.bringToFront();
 
-    loadingTextObject = new fabric.Text("次マップ読込中...", {
-        left: 130,
+    loadingTextObject = new fabric.Text("マップ読込中...", {
+        left: 146,
         top: 264,
         width: 580,
         height: 70,
@@ -698,18 +722,4 @@ function reload() {
 
     canvas.add(loadingTextObject);
     loadingTextObject.bringToFront();
-
-    $.getJSON(boardUrl, null, function (data) {
-        original = $.extend(true, {}, data);
-        maxStep = data.minStep;
-        initGame();
-
-        canvas.remove(loadingTextObject);
-        canvas.remove(loadingBgObject);
-
-        loadingTextObject = null;
-        loadingBgObject = null;
-
-        state = 1;
-    });
 }

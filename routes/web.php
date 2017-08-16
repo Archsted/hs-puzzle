@@ -1,5 +1,3 @@
 <?php
 
-Route::get('single', function () {
-    return view('single');
-});
+Route::get('single/{code?}', 'SinglePlayController@single');
