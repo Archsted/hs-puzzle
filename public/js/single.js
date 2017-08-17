@@ -54,8 +54,6 @@ var loadingTextObject;
 
 var state;
 
-var boardUrl = 'api/v1/board';
-
 function Sta () {
     this.oh = 0; //初期位置
     this.ow = 0;
@@ -512,7 +510,7 @@ function checkGetUdon(sta) {
         state = 5;
 
         // 空にすることで次の読み込みをランダムにする
-        $('#code').val('');
+        $('#boardCode').val('');
 
         roundOver();
 
@@ -678,8 +676,10 @@ function reload() {
 
     showLoading();
 
-    $.getJSON(boardUrl + '/' + $('#code').val(), null, function (data) {
-        $('#code').val(data.code);
+    var requestUri = 'api/v1/user/' + $('#userCode').val() + '/board/' + $('#boardCode').val();
+
+    $.getJSON(requestUri, null, function (data) {
+        $('#boardCode').val(data.code);
         history.replaceState(null, null, 'single/' + data.code);
         original = $.extend(true, {}, data);
         maxStep = data.minStep;

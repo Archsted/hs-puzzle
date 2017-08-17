@@ -158,7 +158,8 @@
     </div>
 </div>
 
-<input type="hidden" id="code" name="code" value="{{ $code }}">
+<input type="hidden" id="userCode" value="{{ $userCode }}">
+<input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
 <script src="js/single.js"></script>
 </body>
 </html>
