@@ -223,6 +223,12 @@ function Sta () {
 }
 
 $(function(){
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
     preload();
 
     initBoard();
@@ -233,6 +239,7 @@ $(function(){
         return false;
     });
 
+    showLoading();
     reload();
 
     $('.moveUp').click(function(){
@@ -506,19 +513,45 @@ function checkGetUdon(sta) {
 
         // goal
         isGoal = true;
-
         state = 5;
-
-        // 空にすることで次の読み込みをランダムにする
-        $('#boardCode').val('');
 
         roundOver();
 
         setTimeout(function(){
 
-            reload();
+            showLoading();
+
+            var boardCodeEl = $('#boardCode');
+
+            // 確認
+            var moveLog = [];
+            $.each(logList, function(logKey, logValue) {
+                moveLog.push({color:logValue.move.color, direction:logValue.move.direction});
+            });
+
+            var answerPath = 'api/v1/user/' + $('#userCode').val() + '/board/' + boardCodeEl.val() + '/answers';
+
+            $.post(answerPath, {answers: moveLog}, function(data) {
+                if (data.status == 'ng') {
+                    alert(data.message);
+                    location.reload();
+                    return;
+                }
+                // 空にすることで次の読み込みをランダムにする
+                boardCodeEl.val('');
+
+                setTimeout(function(){
+
+                    reload();
+
+                }, 10);
+            });
 
         }, 1000);
+
+
+
+
     }
 }
 
@@ -673,8 +706,6 @@ function roundOver() {
 }
 
 function reload() {
-
-    showLoading();
 
     var requestUri = 'api/v1/user/' + $('#userCode').val() + '/board/' + $('#boardCode').val();
 

@@ -9,6 +9,7 @@ class Cell extends Model
     const TYPE_BLANK = 0;
     const TYPE_WALL = 1;
     const TYPE_GOAL = 2;
+    const TYPE_STACHOO = 3;
 
     const COLOR_RED = 'red';
     const COLOR_GREEN = 'green';

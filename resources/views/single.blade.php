@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>はいぱーすたちゅー（おひとりモード）</title>
     <base href="{{ env('APP_URL') }}">
     <link rel="stylesheet" type="text/css" href="css/single.css">
