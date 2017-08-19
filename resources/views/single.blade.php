@@ -142,7 +142,7 @@
     </div>
 
     <div id="footer">
-        <button id="howtoToggle">遊び方を表示 / 非表示</button> ver. 20170319_0850 <span style="margin-left:10px;"> / 作：会長（<a href="https://twitter.com/etude_kaicho" target="_blank">twitter</a>）</span>
+        <button id="howtoToggle">遊び方を表示 / 非表示</button> ver. 20170916_0000 <span style="margin-left:10px;"> / 作：会長（<a href="https://twitter.com/etude_kaicho" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>）</span>
         <ul class="fa-ul" id="howto" style="display:none;">
             <li><i class="fa-li fa fa-check-square-o"></i>うどんに同じ色のすたちゅーを連れていこう。<strong>うどんが灰色の場合、連れていくのは何色でもいいよ。</strong></li>
             <li><i class="fa-li fa fa-check-square-o"></i>左側パッド部分で各色のすたちゅーが動くよ。<strong>一度動くと壁か他のすたちゅーにぶつかるまで止まらないよ。</strong></li>

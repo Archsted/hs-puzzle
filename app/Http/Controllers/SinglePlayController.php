@@ -57,14 +57,14 @@ class SinglePlayController extends Controller
 
     public function board(string $userCode, string $boardCode = null)
     {
+        $user = $this->user->ofCode($userCode)->firstOrFail();
+
         // boardCode指定があればそれを使って取得し、無ければランダムに一つ取得する
         if (is_null($boardCode)) {
-            $board = $this->board->inRandomOrder()->limit(1)->firstOrFail();
+            $board = $this->board->notReserved()->inRandomOrder()->limit(1)->firstOrFail();
         } else {
             $board = $this->board->ofCode($boardCode)->limit(1)->firstOrFail();
         }
-
-        $user = $this->user->ofCode($userCode)->firstOrFail();
 
         // 履歴作成もしくは日時更新
         $this->history

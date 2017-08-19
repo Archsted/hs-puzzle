@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
+    const NOT_RESERVED = 0;
+
     protected $casts = [
         'reserved' => 'boolean',
     ];
@@ -22,6 +24,8 @@ class Board extends Model
     }
 
     /**
+     * 特定のBoardCodeのものを取得する
+     *
      * @param Builder $query
      * @param $code
      * @return Builder
@@ -29,5 +33,16 @@ class Board extends Model
     public function scopeOfCode(Builder $query, $code)
     {
         return $query->where('code', $code);
+    }
+
+    /**
+     * 予約済みで無いものだけを取得する
+     *
+     * @param Builder $query
+     * @return $this
+     */
+    public function scopeNotReserved(Builder $query)
+    {
+        return $query->where('reserved', self::NOT_RESERVED);
     }
 }

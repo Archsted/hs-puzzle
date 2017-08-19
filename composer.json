@@ -53,7 +53,7 @@
         "sort-packages": true,
         "optimize-autoloader": true,
         "platform": {
-            "php": "5.6.4"
+            "php": "7.1.3"
         }
     }
 }
