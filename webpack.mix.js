@@ -11,5 +11,21 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+// mix.js('resources/assets/js/app.js', 'public/js')
+//    .sass('resources/assets/sass/app.scss', 'public/css');
+
+mix.sass('resources/assets/sass/app.scss', 'public/css/lib.css');
+
+mix.styles([
+    'resources/assets/css/single.css'
+], 'public/css/single.css');
+
+mix.scripts([
+    'resources/assets/js/fabric.min.js',
+    'resources/assets/js/jquery-3.2.1.min.js',
+    'resources/assets/js/single.js'
+], 'public/js/single.js');
+
+if (mix.inProduction()) {
+    mix.version();
+}

@@ -5,15 +5,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>はいぱーすたちゅー（おひとりモード）</title>
     <base href="{{ env('APP_URL') }}">
-    <link rel="stylesheet" type="text/css" href="css/single.css">
-    <link rel="stylesheet" href="lib/font-awesome-4.7.0/css/font-awesome.min.css">
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/fabric.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/single.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/lib.css') }}">
 </head>
 <body>
-<header>
-    駒のすたちゅー画像が表示されないなど、表示がおかしい場合はリロードしてみてください。
-</header>
 <div id="main">
 
     <div id="container">
@@ -161,6 +156,6 @@
 
 <input type="hidden" id="userCode" value="{{ $userCode }}">
 <input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
-<script src="js/single.js"></script>
+<script src="{{ mix('js/single.js') }}"></script>
 </body>
 </html>
