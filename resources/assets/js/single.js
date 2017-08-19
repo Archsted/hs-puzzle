@@ -352,7 +352,7 @@ function initBoard () {
     });
 
     canvas.setBackgroundColor({
-        source: 'img/board_background.png',
+        source: '/img/board_background.png',
         repeat: 'repeat'
     }, canvas.renderAll.bind(canvas));
 
@@ -529,7 +529,7 @@ function checkGetUdon(sta) {
                 moveLog.push({color:logValue.move.color, direction:logValue.move.direction});
             });
 
-            var answerPath = 'api/v1/user/' + $('#userCode').val() + '/board/' + boardCodeEl.val() + '/answers';
+            var answerPath = '/api/v1/user/' + $('#userCode').val() + '/board/' + boardCodeEl.val() + '/answers';
 
             $.post(answerPath, {answers: moveLog}, function(data) {
                 if (data.status == 'ng') {
@@ -633,14 +633,14 @@ function preload() {
     //すたちゅー
     for (var i = 1; i <= 8; i++) {
         $('<img/>')
-            .attr('src', 'img/sta' + i + '.png')
+            .attr('src', '/img/sta' + i + '.png')
             .attr('id', 'sta' + i)
             .appendTo(preloadEl);
     }
 
     //うどん
     $('<img/>')
-        .attr('src', 'img/udon.png')
+        .attr('src', '/img/udon.png')
         .attr('id', 'udon')
         .appendTo(preloadEl);
 
@@ -707,7 +707,7 @@ function roundOver() {
 
 function reload() {
 
-    var requestUri = 'api/v1/user/' + $('#userCode').val() + '/board/' + $('#boardCode').val();
+    var requestUri = '/api/v1/user/' + $('#userCode').val() + '/board/' + $('#boardCode').val();
 
     $.getJSON(requestUri, null, function (data) {
         $('#boardCode').val(data.code);
