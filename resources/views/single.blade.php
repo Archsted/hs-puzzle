@@ -4,9 +4,8 @@
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>はいぱーすたちゅー（おひとりモード）</title>
-    <base href="{{ env('APP_URL') }}">
-    <link rel="stylesheet" type="text/css" href="{{ substr(mix('css/single.css'), 1) }}">
-    <link rel="stylesheet" type="text/css" href="{{ substr(mix('css/lib.css'), 1) }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/single.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/lib.css') }}">
 </head>
 <body>
 <div id="main">
