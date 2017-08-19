@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>はいぱーすたちゅー（おひとりモード）</title>
+    <title>はいぱーすたちゅー：詰すた</title>
     <link rel="stylesheet" type="text/css" href="{{ mix('css/single.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ mix('css/lib.css') }}">
 </head>
@@ -133,6 +133,11 @@
             </div>
         </div>
 
+        <div style="clear:both; padding: 10px; text-align: center;">
+            <p>
+                <button type="button" class="btn btn-primary" onclick="location.href='/single'">別の問題へ</button>
+            </p>
+        </div>
 
     </div>
 
