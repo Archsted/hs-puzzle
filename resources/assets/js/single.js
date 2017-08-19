@@ -711,7 +711,7 @@ function reload() {
 
     $.getJSON(requestUri, null, function (data) {
         $('#boardCode').val(data.code);
-        history.replaceState(null, null, 'single/' + data.code);
+        history.replaceState(null, null, '/single/' + data.code);
         original = $.extend(true, {}, data);
         maxStep = data.minStep;
         initGame();
