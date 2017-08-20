@@ -20,9 +20,10 @@ mix.styles([
     'resources/assets/css/single.css'
 ], 'public/css/single.css');
 
+mix.js('resources/assets/js/app.js', 'public/js/lib.js');
+
 mix.scripts([
     'resources/assets/js/fabric.min.js',
-    'resources/assets/js/jquery-3.2.1.min.js',
     'resources/assets/js/single.js'
 ], 'public/js/single.js');
 

@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="utf-8" />
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>はいぱーすたちゅー：詰すた</title>
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/single.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/lib.css') }}">
-</head>
-<body>
-<div id="main">
+@extends('layouts.app')
 
+@section('content')
     <div id="container">
 
         <div id="pad">
@@ -156,10 +147,8 @@
                 <strong style="text-decoration: underline;">一手戻るはキーボードの「F」、全て戻るは「R」を押してもいけるよ。</strong></li>
         </ul>
     </div>
-</div>
 
-<input type="hidden" id="userCode" value="{{ $userCode }}">
-<input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
-<script src="{{ mix('js/single.js') }}"></script>
-</body>
-</html>
+    <input type="hidden" id="userCode" value="{{ $userCode }}">
+    <input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
+
+@endsection
