@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.33 on 2017-08-15.
+ * Generated for Laravel 5.4.33 on 2017-08-21.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11591,6 +11591,241 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Jaybizzle\LaravelCrawlerDetect\Facades { 
+
+    class LaravelCrawlerDetect {
+        
+        /**
+         * Compile the regex patterns into one regex string.
+         *
+         * @param array
+         * @return string 
+         * @static 
+         */ 
+        public static function compileRegex($patterns)
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::compileRegex($patterns);
+        }
+        
+        /**
+         * Set HTTP headers.
+         *
+         * @param array|null $httpHeaders
+         * @static 
+         */ 
+        public static function setHttpHeaders($httpHeaders)
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::setHttpHeaders($httpHeaders);
+        }
+        
+        /**
+         * Return user agent headers.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getUaHttpHeaders()
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::getUaHttpHeaders();
+        }
+        
+        /**
+         * Set the user agent.
+         *
+         * @param string $userAgent
+         * @static 
+         */ 
+        public static function setUserAgent($userAgent)
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::setUserAgent($userAgent);
+        }
+        
+        /**
+         * Check user agent string against the regex.
+         *
+         * @param string|null $userAgent
+         * @return bool 
+         * @static 
+         */ 
+        public static function isCrawler($userAgent = null)
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::isCrawler($userAgent);
+        }
+        
+        /**
+         * Return the matches.
+         *
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getMatches()
+        {
+            return \Jaybizzle\CrawlerDetect\CrawlerDetect::getMatches();
+        }
+         
+    }
+ 
+}
+
+namespace Orangehill\Iseed\Facades { 
+
+    class Iseed {
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function readStubFile($file)
+        {
+            return \Orangehill\Iseed\Iseed::readStubFile($file);
+        }
+        
+        /**
+         * Generates a seed file.
+         *
+         * @param string $table
+         * @param string $database
+         * @param int $max
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return bool 
+         * @throws Orangehill\Iseed\TableNotFoundException
+         * @static 
+         */ 
+        public static function generateSeed($table, $database = null, $max = 0, $exclude = null, $prerunEvent = null, $postrunEvent = null, $dumpAuto = true, $indexed = true, $orderBy = null, $direction = 'ASC')
+        {
+            return \Orangehill\Iseed\Iseed::generateSeed($table, $database, $max, $exclude, $prerunEvent, $postrunEvent, $dumpAuto, $indexed, $orderBy, $direction);
+        }
+        
+        /**
+         * Get a seed folder path
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getSeedPath()
+        {
+            return \Orangehill\Iseed\Iseed::getSeedPath();
+        }
+        
+        /**
+         * Get the Data
+         *
+         * @param string $table
+         * @return Array 
+         * @static 
+         */ 
+        public static function getData($table, $max, $exclude = null, $orderBy = null, $direction = 'ASC')
+        {
+            return \Orangehill\Iseed\Iseed::getData($table, $max, $exclude, $orderBy, $direction);
+        }
+        
+        /**
+         * Repacks data read from the database
+         *
+         * @param array|object $data
+         * @return array 
+         * @static 
+         */ 
+        public static function repackSeedData($data)
+        {
+            return \Orangehill\Iseed\Iseed::repackSeedData($data);
+        }
+        
+        /**
+         * Checks if a database table exists
+         *
+         * @param string $table
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasTable($table)
+        {
+            return \Orangehill\Iseed\Iseed::hasTable($table);
+        }
+        
+        /**
+         * Generates a seed class name (also used as a filename)
+         *
+         * @param string $table
+         * @return string 
+         * @static 
+         */ 
+        public static function generateClassName($table)
+        {
+            return \Orangehill\Iseed\Iseed::generateClassName($table);
+        }
+        
+        /**
+         * Get the path to the stub file.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStubPath()
+        {
+            return \Orangehill\Iseed\Iseed::getStubPath();
+        }
+        
+        /**
+         * Populate the place-holders in the seed stub.
+         *
+         * @param string $class
+         * @param string $stub
+         * @param string $table
+         * @param string $data
+         * @param int $chunkSize
+         * @param string $prerunEvent
+         * @param string $postunEvent
+         * @return string 
+         * @static 
+         */ 
+        public static function populateStub($class, $stub, $table, $data, $chunkSize = null, $prerunEvent = null, $postrunEvent = null, $indexed = true)
+        {
+            return \Orangehill\Iseed\Iseed::populateStub($class, $stub, $table, $data, $chunkSize, $prerunEvent, $postrunEvent, $indexed);
+        }
+        
+        /**
+         * Create the full path name to the seed file.
+         *
+         * @param string $name
+         * @param string $path
+         * @return string 
+         * @static 
+         */ 
+        public static function getPath($name, $path)
+        {
+            return \Orangehill\Iseed\Iseed::getPath($name, $path);
+        }
+        
+        /**
+         * Cleans the iSeed section
+         *
+         * @return bool 
+         * @static 
+         */ 
+        public static function cleanSection()
+        {
+            return \Orangehill\Iseed\Iseed::cleanSection();
+        }
+        
+        /**
+         * Updates the DatabaseSeeder file's run method (kudoz to: https://github.com/JeffreyWay/Laravel-4-Generators)
+         *
+         * @param string $className
+         * @return bool 
+         * @static 
+         */ 
+        public static function updateDatabaseSeederRunMethod($className)
+        {
+            return \Orangehill\Iseed\Iseed::updateDatabaseSeederRunMethod($className);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13654,6 +13889,10 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Crawler extends \Jaybizzle\LaravelCrawlerDetect\Facades\LaravelCrawlerDetect {}
+
+    class Iseed extends \Orangehill\Iseed\Facades\Iseed {}
  
 }
 
