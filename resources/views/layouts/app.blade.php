@@ -30,14 +30,14 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/single') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', '') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="#">aaaaa</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -67,17 +67,7 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-3">
-                    <ul class="nav nav-sidebar">
-                        <li>ああああ</li>
-                        <li>いいいい</li>
-                    </ul>
-                </div>
-                <div class="col-sm-9">
-                    @yield('content')
-                </div>
-            </div>
+            @yield('content')
         </div>
     </div>
 

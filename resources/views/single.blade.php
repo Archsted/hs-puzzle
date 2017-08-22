@@ -148,7 +148,7 @@
         </ul>
     </div>
 
-    <input type="hidden" id="userCode" value="{{ $userCode }}">
+    <input type="hidden" id="userCode" value="{{ request()->user()->code }}">
     <input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
 
 @endsection

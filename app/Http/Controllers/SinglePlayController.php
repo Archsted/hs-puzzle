@@ -33,26 +33,9 @@ class SinglePlayController extends Controller
 
     public function single(Request $request, string $boardCode = null)
     {
-        $userCode = $request->cookie('userCode');
-
-        if ($userCode) {
-            // 既存プレイヤー
-            $user = $this->user->ofCode($userCode)->first();
-
-            // クッキーの情報がDBに無かった場合は新規プレイヤー扱いとする
-            if (!$user) {
-                $user = $this->createNewUser();
-            }
-        } else {
-            // 新規プレイヤー
-            $user = $this->createNewUser();
-       }
-
-       $userCode = $user->code;
-
         return response()
             ->view('single', compact('boardCode', 'userCode'))
-            ->cookie('userCode', $user->code);
+            ->cookie('userCode', $request->user()->code);
     }
 
     public function board(string $userCode, string $boardCode = null)
@@ -109,38 +92,4 @@ class SinglePlayController extends Controller
         return response()->json($data);
     }
 
-    /**
-     * Userを新規作成し、作成したUserモデルを返す
-     *
-     * @return User
-     */
-    private function createNewUser()
-    {
-        $userCode = $this->getRandomUserCode();
-
-        return $this->user->create([
-            'code' => $userCode,
-        ]);
-    }
-
-    /**
-     * Userのcode用ランダム文字列を生成して返す
-     *
-     * @return string
-     */
-    private function getRandomUserCode()
-    {
-        $userCode = '';
-
-        // 重複しないコードをランダム生成
-        while (true) {
-            $userCode = hash('sha256', str_random(16));
-
-            if (!$this->user->where('code', $userCode)->first()) {
-                break;
-            }
-        }
-
-        return $userCode;
-    }
 }
