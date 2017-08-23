@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CreateUserIfNotAuthenticated;
 use App\Http\Middleware\SiftCrawler;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -33,6 +34,7 @@ class Kernel extends HttpKernel
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
+            \App\Http\Middleware\CreateUserIfNotAuthenticated::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
@@ -57,6 +59,7 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'auto_user' => \App\Http\Middleware\CreateUserIfNotAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }

@@ -6,16 +6,10 @@
         <div id="pad">
             <div class="history">
                 <div class="btn-back">
-                <span class="btn fa-stack fa-lg">
-                    <i class="fa fa-square-o fa-stack-2x"></i>
-                    <i class="fa fa-undo fa-stack-1x"></i>
-                </span>
+                    <button type="button" class="btn btn-primary" id="btn_undo">１手戻す(F)</button>
                 </div>
                 <div class="btn-refresh">
-                <span class="btn fa-stack fa-lg">
-                    <i class="fa fa-square-o fa-stack-2x"></i>
-                    <i class="fa fa-refresh fa-stack-1x"></i>
-                </span>
+                    <button type="button" class="btn btn-primary" id="btn_reset">リセット(R)</button>
                 </div>
             </div>
 
@@ -135,17 +129,6 @@
 
     <div id="board">
         <canvas id="c"></canvas>
-    </div>
-
-    <div id="footer">
-        <button id="howtoToggle">遊び方を表示 / 非表示</button> ver. 20170916_0000 <span style="margin-left:10px;"> / 作：会長（<a href="https://twitter.com/etude_kaicho" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>）</span>
-        <ul class="fa-ul" id="howto" style="display:none;">
-            <li><i class="fa-li fa fa-check-square-o"></i>うどんに同じ色のすたちゅーを連れていこう。<strong>うどんが灰色の場合、連れていくのは何色でもいいよ。</strong></li>
-            <li><i class="fa-li fa fa-check-square-o"></i>左側パッド部分で各色のすたちゅーが動くよ。<strong>一度動くと壁か他のすたちゅーにぶつかるまで止まらないよ。</strong></li>
-            <li><i class="fa-li fa fa-check-square-o"></i><strong style="text-decoration: underline;">左側パッドの各色エリアにマウスカーソルを載せたままキーボードの [ASDW] や [←↓→↑] を押しても移動できるよ。</strong></li>
-            <li><i class="fa-li fa fa-check-square-o"></i>パッド上にある矢印ボタンは、左が「一手戻る」、右が「全て戻る」だよ。<br>
-                <strong style="text-decoration: underline;">一手戻るはキーボードの「F」、全て戻るは「R」を押してもいけるよ。</strong></li>
-        </ul>
     </div>
 
     <input type="hidden" id="userCode" value="{{ request()->user()->code }}">

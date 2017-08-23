@@ -3,22 +3,22 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Crawler;
+use Illuminate\Support\Facades\Auth;
 
-class SiftCrawler
+class CreateUserIfNotAuthenticated
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
+     * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $guard = null)
     {
-        if(Crawler::isCrawler()) {
-            // true if crawler user agent detected
-            abort(403);
+        if (Auth::check() === false) {
+            return redirect()->route('login');
         }
 
         return $next($request);

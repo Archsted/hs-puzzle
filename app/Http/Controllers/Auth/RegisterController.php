@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -62,10 +65,51 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $userCode = $this->getRandomUserCode();
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'code' => $userCode,
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
+    {
+        // 新規プレイヤー
+        $user = $this->create($request->all());
+
+        event(new Registered($user));
+
+        $this->guard()->login($user, true);
+
+        return $this->registered($request, $user)
+//            ?: redirect($this->redirectPath());
+            ?: redirect()->back();
+    }
+
+    /**
+     * Userのcode用ランダム文字列を生成して返す
+     *
+     * @return string
+     */
+    private function getRandomUserCode()
+    {
+        $userCode = '';
+
+        // 重複しないコードをランダム生成
+        while (true) {
+            $userCode = hash('sha256', str_random(16));
+
+            if (!User::where('code', $userCode)->first()) {
+                break;
+            }
+        }
+
+        return $userCode;
     }
 }

@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('code', 64)->unique(); // sha256
             $table->string('name')->nullable();
             $table->string('twitter')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

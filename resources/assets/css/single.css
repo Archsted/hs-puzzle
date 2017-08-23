@@ -23,9 +23,6 @@
     /*width:1070px;*/
     width:820px;
 }
-.btn{
-    cursor:pointer;
-}
 #container{
     width:240px;
     height:580px;
@@ -70,7 +67,7 @@
     bottom:0;
 }
 
-#pad button{
+.arrow-pad button{
     border:solid 1px #666;
     color: #000;
     margin:0;
@@ -79,12 +76,14 @@
     width:33px;
     height:33px;
 }
+
 .btn-back{
     color:#ffc;
     text-align:left;
     position:absolute;
     top:4px;
     left:8px;
+    width: 104px;
 }
 .btn-refresh{
     color:#ffc;
@@ -92,6 +91,7 @@
     position:absolute;
     top:4px;
     right:8px;
+    width: 104px;
 }
 
 #info{
@@ -172,11 +172,6 @@ input{
 #roundCount {
     font-weight: bold;
     color: #c62;
-}
-
-#footer {
-    clear: both;
-    /*color: #ddd;*/
 }
 
 #howto {

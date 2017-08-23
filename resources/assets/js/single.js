@@ -223,12 +223,6 @@ function Sta () {
 }
 
 $(function(){
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
     preload();
 
     initBoard();
@@ -276,15 +270,17 @@ $(function(){
         }
     );
 
-    $('.fa-stack').click(function(){
+    $('#btn_undo').click(function(){
         if (isPlayable()) {
             undo();
         }
+        this.blur();
     });
-    $('.fa-refresh').click(function(){
+    $('#btn_reset').click(function(){
         if (isPlayable()) {
             reset();
         }
+        this.blur();
     });
 
     $('#howtoToggle').click(function(){
@@ -531,27 +527,28 @@ function checkGetUdon(sta) {
 
             var answerPath = '/api/v1/user/' + $('#userCode').val() + '/board/' + boardCodeEl.val() + '/answers';
 
-            $.post(answerPath, {answers: moveLog}, function(data) {
+            axios.post(answerPath, {
+                answers: moveLog
+            }).then(function (response) {
+                data = response.data;
+
                 if (data.status == 'ng') {
                     alert(data.message);
                     location.reload();
                     return;
                 }
+
                 // 空にすることで次の読み込みをランダムにする
                 boardCodeEl.val('');
 
                 setTimeout(function(){
-
                     reload();
-
                 }, 10);
+
+            }).catch(function (error) {
+                console.log(error);
             });
-
         }, 1000);
-
-
-
-
     }
 }
 
@@ -709,21 +706,27 @@ function reload() {
 
     var requestUri = '/api/v1/user/' + $('#userCode').val() + '/board/' + $('#boardCode').val();
 
-    $.getJSON(requestUri, null, function (data) {
-        $('#boardCode').val(data.code);
-        history.replaceState(null, null, '/single/' + data.code);
-        original = $.extend(true, {}, data);
-        maxStep = data.minStep;
-        initGame();
+    axios.get(requestUri)
+        .then(function (response) {
+            data = response.data;
 
-        canvas.remove(loadingTextObject);
-        canvas.remove(loadingBgObject);
+            $('#boardCode').val(data.code);
+            history.replaceState(null, null, '/single/' + data.code);
+            original = $.extend(true, {}, data);
+            maxStep = data.minStep;
+            initGame();
 
-        loadingTextObject = null;
-        loadingBgObject = null;
+            canvas.remove(loadingTextObject);
+            canvas.remove(loadingBgObject);
 
-        state = 1;
-    });
+            loadingTextObject = null;
+            loadingBgObject = null;
+
+            state = 1;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 }
 
 function showLoading() {
