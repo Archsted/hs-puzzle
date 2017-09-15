@@ -24,7 +24,8 @@ mix.js('resources/assets/js/app.js', 'public/js/lib.js');
 
 mix.scripts([
     'resources/assets/js/fabric.min.js',
-    'resources/assets/js/single.js'
+    'resources/assets/js/single.js',
+    'resources/assets/js/shared.js',
 ], 'public/js/single.js');
 
 if (mix.inProduction()) {

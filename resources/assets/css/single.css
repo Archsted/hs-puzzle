@@ -33,12 +33,19 @@
     position:relative;
 }
 #board{
+    position:relative;
     float:left;
     width:580px;
     height:580px;
     margin:0;
     padding:0;
     background-color:#000;
+}
+
+#enchant-stage {
+    position: absolute;
+    left:0;
+    top:0;
 }
 
 #c {
@@ -180,4 +187,18 @@ input{
 
 header {
     text-align: center;
+}
+
+.board-status dl {
+
+}
+.board-status dt {
+    font-size: 120%;
+    background-color: #666;
+    color: #ffe;
+    padding: 3px 10px;
+}
+.board-status dd {
+    font-size: 150%;
+    text-align: right;
 }

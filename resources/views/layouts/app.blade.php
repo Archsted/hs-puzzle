@@ -40,27 +40,8 @@
 
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="">ランダム</a></li>
-                        <li><a href="">初級</a></li>
-                        <li><a href="">中級</a></li>
-                        <li><a href="">上級</a></li>
-                        <li><a href="">超級</a></li>
-
-                        {{--<li class="dropdown">--}}
-                            {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Slate <span class="caret"></span></a>--}}
-                            {{--<ul class="dropdown-menu" aria-labelledby="download">--}}
-                                {{--<li><a href="http://jsfiddle.net/bootswatch/g1q7jxzf/">Open Sandbox</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>--}}
-                                {{--<li><a href="./bootstrap.css">bootstrap.css</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="./variables.less">variables.less</a></li>--}}
-                                {{--<li><a href="./bootswatch.less">bootswatch.less</a></li>--}}
-                                {{--<li class="divider"></li>--}}
-                                {{--<li><a href="./_variables.scss">_variables.scss</a></li>--}}
-                                {{--<li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
+                        <li><a href="">ランダム問題</a></li>
+                        <li><a href="">すたンプ</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -69,15 +50,13 @@
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ request()->user()->name }} <span class="caret"></span>
+                                <span id="nameLabel">{{ request()->user()->name }}</span> <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">すたンプ</a></li>
-                                <li class="divider"></li>
                                 <li>
-                                    <a href="#">
-                                        プロフィール編集
+                                    <a href="#" onclick="openRenameModal();">
+                                        名前変更
                                     </a>
 
                                     <form id="logout-form" action="" method="POST" style="display: none;">
@@ -101,6 +80,30 @@
             <span class="text-muted">ver. 20170916_0000 <span style="margin-left:10px;"> / 作：会長 ( <a href="https://twitter.com/etude_kaicho" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="#">きゃすけっと特設ページ</a> )</span></span>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="renameModal" tabindex="-1" role="dialog" aria-labelledby="renameModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form id="userUpdateForm">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">プロフィール編集</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="userName">名前（20文字以内）</label>
+                            <input type="text" class="form-control" id="userName" value="{{ request()->user()->name }}" maxlength="20">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">キャンセル</button>
+                        <button type="submit" class="btn btn-primary">決定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="{{ mix('js/lib.js') }}"></script>

@@ -602,6 +602,15 @@ function initGame() {
     initWall();
     initUdon();
     initStas(data['stas']);
+
+    $('#totalUser').text(data['totalUser']);
+    $('#clearUser').text(data['clearUser']);
+
+    if (data['totalUser'] == 0) {
+        $('#clearRatio').text(' - ')
+    } else {
+        $('#clearRatio').text(Math.round(data['clearUser'] / data['totalUser'] * 10000) / 100);
+    }
 }
 
 function initStepCount() {

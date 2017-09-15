@@ -2,7 +2,6 @@
 
 @section('content')
     <div id="container">
-
         <div id="pad">
             <div class="history">
                 <div class="btn-back">
@@ -118,14 +117,21 @@
             </div>
         </div>
 
-        <div style="clear:both; padding: 10px; text-align: center;">
+        <div style="clear:both; padding: 10px;">
+            <dl class="board-status">
+                <dt>プレイ人数</dt>
+                <dd><span id="totalUser"> - </span>人</dd>
+                <dt>クリア人数</dt>
+                <dd><span id="clearUser"> - </span>人</dd>
+                <dt>クリア率</dt>
+                <dd><span id="clearRatio"> - </span>％</dd>
+            </dl>
+
             <p>
                 <button type="button" class="btn btn-primary" onclick="location.href='/single'">別の問題へ</button>
             </p>
         </div>
-
     </div>
-
 
     <div id="board">
         <canvas id="c"></canvas>

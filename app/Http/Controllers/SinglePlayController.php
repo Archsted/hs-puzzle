@@ -49,6 +49,9 @@ class SinglePlayController extends Controller
             $board = $this->board->ofCode($boardCode)->limit(1)->firstOrFail();
         }
 
+        // 履歴を作成する前に、履歴を全て取得しておく
+        $histories = $board->histories;
+
         // 履歴作成もしくは日時更新
         $this->history
             ->where('user_id', $user->id)
@@ -86,6 +89,10 @@ class SinglePlayController extends Controller
                 'color' => $board->goalCell->color,
             ],
             'minStep'  => $board->step_count,
+            'totalUser' => $histories->count(),
+            'clearUser' => $histories->filter(function ($value, $key) {
+                return !is_null($value->cleared_at);
+            })->count(),
             'version' => '1',
         ];
 

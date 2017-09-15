@@ -23,6 +23,11 @@ class Board extends Model
         return $this->belongsTo('App\Cell', 'goal_cell_id');
     }
 
+    public function histories()
+    {
+        return $this->hasMany('App\History');
+    }
+
     /**
      * 特定のBoardCodeのものを取得する
      *
