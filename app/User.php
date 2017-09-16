@@ -13,4 +13,9 @@ class User extends Authenticatable
     public function scopeOfCode($query, $code) {
         return $query->where('code', $code);
     }
+
+    public function stamps()
+    {
+        return $this->belongsToMany('App\Stamp')->withTimestamps();
+    }
 }

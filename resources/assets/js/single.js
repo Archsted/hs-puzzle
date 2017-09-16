@@ -538,12 +538,24 @@ function checkGetUdon(sta) {
                     return;
                 }
 
+                if (data.stamp) {
+                    var toastrBody = '<img src="/stamp/'+ data.stamp.code +'/image?from=toastr" class="rarity'+ data.stamp.rarity +'">';
+
+                    if (data.isNewStamp == 1) {
+                        toastrBody = '<strong>NEW !!</strong> ' + toastrBody;
+                    }
+
+                    toastrBody = '<div class="stampToastr">' + toastrBody + '</div>';
+
+                    toastr.success(toastrBody, 'すたンプ入手！');
+                }
+
                 // 空にすることで次の読み込みをランダムにする
                 boardCodeEl.val('');
 
                 setTimeout(function(){
                     reload();
-                }, 10);
+                }, 1000);
 
             }).catch(function (error) {
                 console.log(error);

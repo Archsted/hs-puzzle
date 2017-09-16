@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Cell;
 use App\History;
+use App\Services\Gacha;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BoardController extends Controller
 {
+    protected $gacha;
+
+    public function __construct(Gacha $gacha)
+    {
+        $this->gacha = $gacha;
+    }
+
     public function answer(Request $request, string $userCode, string $boardCode)
     {
         $user = User::ofCode($userCode)->firstOrFail();
@@ -77,17 +85,35 @@ class BoardController extends Controller
             $board->goalCell->color === $lastAnswer['color'] &&
             $board->step_count <= count($answers)) {
 
+            $isFirstClear = false;
+
             // クリア履歴をつける
             $history = History::query()->where('user_id', $user->id)->where('board_id', $board->id)->first();
             if ($history) {
                 // 未クリアだった時のみ、初回クリアの日時を入れる
                 if (!$history->cleared_at) {
                     $history->cleared_at = Carbon::now();
+                    $isFirstClear = true;
                 }
                 $history->save();
             }
 
-            return response(['status' => 'ok']);
+            // 未クリアだった時
+            if ($isFirstClear) {
+                // 所持スタンプを取得しておく
+                $stampIds = $user->stamps->pluck('id')->toArray();
+
+                // スタンプガチャ
+                $newStamp = $this->gacha->getStampByStep($user, $board->step_count);
+
+                // Newスタンプかどうか
+                $haveStamp = in_array($newStamp->id, $stampIds);
+
+                return response(['status' => 'ok', 'stamp' => $newStamp, 'isNewStamp' => ($haveStamp) ? 0 : 1]);
+            } else {
+                return response(['status' => 'ok']);
+            }
+
         } else {
             return response(['status' => 'ng', 'message' => '不正な回答を検知しました。']);
         }

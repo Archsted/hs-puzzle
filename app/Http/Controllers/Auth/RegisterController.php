@@ -83,6 +83,8 @@ class RegisterController extends Controller
         // 新規プレイヤー
         $user = $this->create($request->all());
 
+        $user->name = 'デフォルトネーム（ID：'.$user->id.'）';
+
         event(new Registered($user));
 
         $this->guard()->login($user, true);

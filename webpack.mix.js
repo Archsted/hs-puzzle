@@ -17,12 +17,14 @@ let mix = require('laravel-mix');
 mix.sass('resources/assets/sass/app.scss', 'public/css/lib.css');
 
 mix.styles([
+    'resources/assets/css/toastr.min.css',
     'resources/assets/css/single.css'
 ], 'public/css/single.css');
 
 mix.js('resources/assets/js/app.js', 'public/js/lib.js');
 
 mix.scripts([
+    'resources/assets/js/toastr.min.js',
     'resources/assets/js/fabric.min.js',
     'resources/assets/js/single.js',
     'resources/assets/js/shared.js',

@@ -202,3 +202,43 @@ header {
     font-size: 150%;
     text-align: right;
 }
+
+.stampToastr strong {
+    color: #ff0000;
+    font-size: 150%;
+    background-color: #ffffcc;
+}
+
+.stampToastr img {
+    border-style: solid;
+    border-width: 3px;
+}
+
+.stampList li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.stampList img {
+    border-style: solid;
+    border-width: 2px;
+}
+
+img.rarity1 {
+    border-color: #111;
+}
+img.rarity2 {
+    border-color: #090;
+}
+img.rarity3 {
+    border-color: silver;
+}
+img.rarity4 {
+    border-color: gold;
+}
+img.rarity5 {
+    border-color: #FF8888;
+}
+
+
+

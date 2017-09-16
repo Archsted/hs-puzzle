@@ -22,3 +22,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Stamp::class, function (Faker\Generator $faker) {
+    return [
+        'code' => str_random(8),
+        'image' => '.png',
+    ];
+});

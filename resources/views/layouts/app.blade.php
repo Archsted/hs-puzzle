@@ -40,13 +40,13 @@
 
 
                     <ul class="nav navbar-nav navbar-left">
-                        <li><a href="">ランダム問題</a></li>
-                        <li><a href="">すたンプ</a></li>
+                        <li><a href="{{ url('/single') }}">問題を解く</a></li>
+                        <li><a href="{{ url('/single/stamps') }}">すたンプ</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> 遊び方</a></li>
+                        <li><a href="/howto"><i class="fa fa-question-circle-o" aria-hidden="true"></i> 遊び方</a></li>
 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -77,7 +77,7 @@
 
     <footer class="footer clearfix">
         <div class="container" style="margin-top:10px; text-align: center;">
-            <span class="text-muted">ver. 20170916_0000 <span style="margin-left:10px;"> / 作：会長 ( <a href="https://twitter.com/etude_kaicho" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="#">きゃすけっと特設ページ</a> )</span></span>
+            <span class="text-muted">ver. 20170917_0900 <span style="margin-left:10px;"> / 作：会長 ( <a href="https://twitter.com/etude_kaicho" target="_blank" style="color:#99F"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a> / <a href="http://peercasket.herokuapp.com/2017a/circle/2825" target="_blank" style="color:#99F">きゃすけっと特設ページ</a> )</span></span>
         </div>
     </footer>
 
