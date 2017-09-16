@@ -11,8 +11,8 @@ Route::group(['middleware' => ['auto_user']], function () {
     Route::get('single/stamps', 'UserController@stamps');
     Route::get('single/{code?}', 'SinglePlayController@single');
     Route::get('stamp/{stampCode?}/image', 'StampController@showImage');
-});
 
-Route::get('howto', function() {
-    return view('howto');
+    Route::get('howto', function() {
+        return view('howto');
+    });
 });

@@ -138,7 +138,6 @@
             <canvas id="c"></canvas>
         </div>
 
-        <input type="hidden" id="userCode" value="{{ request()->user()->code }}">
         <input type="hidden" id="boardCode" name="boardCode" value="{{ $boardCode }}">
 
     </div>

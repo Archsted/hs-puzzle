@@ -94,6 +94,7 @@
                         <div class="form-group">
                             <label for="userName">名前（20文字以内）</label>
                             <input type="text" class="form-control" id="userName" value="{{ request()->user()->name }}" maxlength="20">
+                            <input type="hidden" id="userCode" value="{{ request()->user()->code }}">
                         </div>
                     </div>
                     <div class="modal-footer">
