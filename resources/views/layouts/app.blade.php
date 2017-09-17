@@ -42,6 +42,7 @@
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="{{ url('/single') }}">問題を解く</a></li>
                         <li><a href="{{ url('/single/stamps') }}">すたンプ</a></li>
+                        <li><a href="{{ url('/single/ranking') }}"><span class="badge" style="color:#F88">NEW!!</span> ランキング</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
