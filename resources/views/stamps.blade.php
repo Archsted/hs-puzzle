@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>所持スタンプ一覧</h1>
+    <h1>所持すたンプ一覧</h1>
 
     @foreach($stamps as $rarity => $stampList)
         <div class="panel panel-default">
