@@ -10,6 +10,14 @@
         <li>中央に表示された手数を超えて移動は出来ないよ。途中で足りなくなってしまったら、もっと短いルートを探してみよう。</li>
     </ul>
 
+    <h2>中央の手数の色について <span class="badge" style="color:#F88">NEW!!</span></h2>
+
+    <ul>
+        <li>中央の残り手数を示す数字が、黄色の時と、赤色の時があるよ。</li>
+        <li>黄色は、その問題を自分がまだクリアした事が無い時だよ。クリア時にすたンプが<strong style="text-decoration: underline;">もらえる</strong>状態だよ。</li>
+        <li>赤色は、その問題を自分が既にクリアした事がある時だよ。クリアしてもすたンプは<strong style="text-decoration: underline;">もらえない</strong>状態だよ。</li>
+    </ul>
+
     <h2>操作の仕方</h2>
 
     <ul>

@@ -93,6 +93,9 @@ class SinglePlayController extends Controller
             'clearUser' => $histories->filter(function ($value, $key) {
                 return !is_null($value->cleared_at);
             })->count(),
+            'isClear' => $histories->filter(function ($value, $key) use ($user) {
+                return $value->user_id === $user->id && !is_null($value->cleared_at);
+            })->count(),
             'version' => '1',
         ];
 

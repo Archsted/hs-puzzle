@@ -628,6 +628,11 @@ function initGame() {
 function initStepCount() {
     staCount = maxStep;
     stepCountObject.setText(staCount.toString());
+    if (data['isClear'] == 1) {
+        stepCountObject.setFill('red');
+    } else {
+        stepCountObject.setFill('yellow');
+    }
 }
 
 function log(targetSta, direction) {
