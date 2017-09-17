@@ -127,7 +127,9 @@ class CreateBoard extends Command
 
             $board->step_count = intval($minStep);
 
-            $board->save();
+            if ($board->step_count > 2) {
+                $board->save();
+            }
 
             $bar->advance();
         }
