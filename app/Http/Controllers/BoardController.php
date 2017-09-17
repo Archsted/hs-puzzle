@@ -82,7 +82,7 @@ class BoardController extends Controller
 
         if ($board->goalCell->y === $board->{$lastAnswer['color'] . '_y'} &&
             $board->goalCell->x === $board->{$lastAnswer['color'] . '_x'} &&
-            $board->goalCell->color === $lastAnswer['color'] &&
+            ($board->goalCell->color === $lastAnswer['color'] || $board->goalCell->color === Cell::COLOR_BLACK) &&
             $board->step_count <= count($answers)) {
 
             $isFirstClear = false;
