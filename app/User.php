@@ -18,4 +18,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Stamp')->withTimestamps();
     }
+
+    public function histories()
+    {
+        return $this->hasMany('App\History');
+    }
 }

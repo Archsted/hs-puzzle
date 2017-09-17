@@ -9,10 +9,12 @@ Route::group(['middleware' => ['auto_user']], function () {
         return redirect('/single');
     });
     Route::get('single/stamps', 'UserController@stamps');
+    Route::get('/single/ranking', 'RankingController@index');
     Route::get('single/{code?}', 'SinglePlayController@single');
     Route::get('stamp/{stampCode?}/image', 'StampController@showImage');
 
     Route::get('howto', function() {
         return view('howto');
     });
+
 });
