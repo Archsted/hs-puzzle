@@ -1,0 +1,113 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <h1>統計</h1>
+
+    <h2>すたンプ排出率</h2>
+
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+            <th>手数</th>
+            <th>★1</th>
+            <th>★2</th>
+            <th>★3</th>
+            <th>★4</th>
+            <th>★5</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>3</td>
+            <td>60%</td>
+            <td>30%</td>
+            <td>10%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>50%</td>
+            <td>40%</td>
+            <td>10%</td>
+            <td>0%</td>
+            <td>0%</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>20%</td>
+            <td>38%</td>
+            <td>32%</td>
+            <td>9%</td>
+            <td>1%</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>15%</td>
+            <td>35%</td>
+            <td>36%</td>
+            <td>12%</td>
+            <td>2%</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>10%</td>
+            <td>32%</td>
+            <td>40%</td>
+            <td>15%</td>
+            <td>3%</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>76%</td>
+            <td>20%</td>
+            <td>4%</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>64%</td>
+            <td>28%</td>
+            <td>8%</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>52%</td>
+            <td>36%</td>
+            <td>12%</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>40%</td>
+            <td>44%</td>
+            <td>16%</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>28%</td>
+            <td>42%</td>
+            <td>30%</td>
+        </tr>
+        <tr>
+            <td>13+</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>0%</td>
+            <td>41%</td>
+            <td>59%</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+@endsection

@@ -17,4 +17,8 @@ Route::group(['middleware' => ['auto_user']], function () {
         return view('howto');
     });
 
+    Route::get('statistics', function() {
+        return view('statistics');
+    });
+
 });
